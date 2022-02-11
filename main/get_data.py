@@ -6,6 +6,9 @@ from datetime import datetime, timedelta, time
 import pandas as pd
 import patterns_detect as cs
 import yesterdays_data as yd
+import add_daily_data_to_db as add
+
+# Get previous days data from DB
 last_date, recent_oi_data, list_of_dates = yd.get_yesterdays_data()
 
 # To Scrape any NSE Link.
@@ -34,6 +37,8 @@ def nsefetch(payload):
         output = s.get(payload, headers=headers).json()
     return output
 
+# Function to prevent any false data numbers which may cause error.
+
 
 def time_in_range():
     return time(19, 0, 0) <= datetime.now().time() <= time(23, 59, 0)
@@ -44,6 +49,7 @@ if time_in_range():
 else:
     today = datetime.today()-timedelta(days=1)
 
+# Different date formats.
 fao_oi_date_format = today.strftime('%d%m%Y')  # DDMMYYYY
 fii_stats_date_format = today.strftime('%d-%b-%Y')  # DD-MMM-YYYY
 json_date_format = today.strftime('%Y-%m-%d')  # YYYY-MM-DD
@@ -57,13 +63,16 @@ def get_fao_oi(date):
     prop = {}
     fao_oi_url = f'https://archives.nseindia.com/content/nsccl/fao_participant_oi_{date}.csv'
     df = pd.read_csv(fao_oi_url)
-    new_header = df.iloc[0]  # grab the first row for the header
-    df = df[1:-1]  # take the data less the header row
-    df.columns = new_header  # set the header row as the df header
-    df = df.dropna(axis=1, how='all')
+    # Some CSV didn't have header only.
+    if True in df.columns.str.contains('^Unnamed'):
+        new_header = df.iloc[0]  # grab the first row for the header
+        df = df[1:-1]  # take the data less the header row
+        df.columns = new_header  # set the header row as the df header
+        df = df.dropna(axis=1, how='all')
     df = df[['Client Type', 'Future Index Long', 'Future Index Short', 'Option Index Call Long', 'Option Index Call Short',
             'Option Index Put Long', 'Option Index Put Short']]
-
+    # To remove any commas in the numbers as they will be considered as string.
+    df = df.apply(lambda x: x.astype(str).str.replace(',', ''))
     # Extracting Future OI
     ff = df[['Future Index Long', 'Future Index Short']]
     ff = ff.apply(pd.to_numeric)
@@ -105,6 +114,8 @@ def get_fao_oi(date):
     # print(df)
     return main
 
+# Get FII futures in crores.
+
 
 def get_fii_stats(date):
     fii_stats = f'https://www1.nseindia.com/content/fo/fii_stats_{date}.xls'
@@ -142,6 +153,8 @@ def get_nsdl_fii_data():
     # Future Market FII
     print(df2)
 # get_nsdl_fii_data()
+
+# Function to get cash data of the day.
 
 
 def get_fii_dii_eqt():
@@ -188,8 +201,8 @@ def previous_data_compare(new_data):
 
 def get_data():
     final = {}
-    # To get candlestick pattern of the day.
-    final['candlesticks'] = cs.candlesticks()
+    # To get candlestick pattern of the day and close price.
+    final['candlesticks'], final['close'] = cs.candlesticks()
     final['date'] = json_date_format
     # To get Cash Data of FII and DII
     final['cash'] = get_fii_dii_eqt()
@@ -197,10 +210,12 @@ def get_data():
     final['oi'] = get_fao_oi(fao_oi_date_format)
     # To get Future Buy and Sell of FII in Crores.
     final['fii_future_crores'] = get_fii_stats(fii_stats_date_format)
-    final['close'] = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     # print(final)
-    final_with_interday_change = previous_data_compare(final)
-    print(final_with_interday_change)
+    # Calculating change from previos day.
+    done = previous_data_compare(final)
+    # print(done)
+    # Adding data to DB
+    add.add_daily_data(done)
     # write_json(final_with_interday_change)
 
 

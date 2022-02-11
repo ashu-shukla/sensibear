@@ -10,6 +10,7 @@ def get_oi(cur, previous_date):
     fii = {}
     dii = {}
     pro = {}
+    # Function will get OI for all the participants and return a JSON.
     participants = ['retail', 'fii', 'dii', 'proprietary']
     derivatives = {'future': 'fut_oi', 'call': 'call', 'put': 'put'}
     for participant in participants:
@@ -36,6 +37,7 @@ def get_oi(cur, previous_date):
 
 
 def get_max_date(cur):
+    # Fuction to get MAX date from DB
     sql = f'SELECT MAX(date) FROM daily_cash;'
     cur.execute(sql)
     rec = cur.fetchone()
@@ -44,6 +46,7 @@ def get_max_date(cur):
 
 
 def get_list_of_dates(cur):
+    # Funtion to get list of all dates from DB
     sql = f'SELECT date FROM daily_cash;'
     cur.execute(sql)
     rec = cur.fetchall()
@@ -65,11 +68,11 @@ def get_yesterdays_data():
         last_date = get_max_date(cur)
         data = get_oi(cur, last_date)
         dates = get_list_of_dates(cur)
-        # close communication with the PostgreSQL database server
         print('Commands executed to DB!')
         cur.close()
         # commit the changes
         conn.commit()
+        # Returning last date, yesterdays OI data and list of dates.
         return last_date, data, dates
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
