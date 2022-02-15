@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import psycopg2
 from config import config
 
@@ -26,25 +24,25 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS daily_cash(
             day_id INTEGER PRIMARY KEY,
             date DATE NOT NULL,
-            nifty_close float(2) NOT NULL,
-            dii_cash_buy float(2) NOT NULL,
-            dii_cash_sell float(2) NOT NULL,
-            dii_cash_net float(2) NOT NULL,
-            fii_cash_buy float(2) NOT NULL,
-            fii_cash_sell float(2) NOT NULL,
-            fii_cash_net float(2) NOT NULL
+            nifty_close NUMERIC NOT NULL,
+            dii_cash_buy NUMERIC NOT NULL,
+            dii_cash_sell NUMERIC NOT NULL,
+            dii_cash_net NUMERIC NOT NULL,
+            fii_cash_buy NUMERIC NOT NULL,
+            fii_cash_sell NUMERIC NOT NULL,
+            fii_cash_net NUMERIC NOT NULL
         )
          """,
         """ CREATE TABLE IF NOT EXISTS retail_future_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -52,14 +50,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS retail_call_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -67,14 +65,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS retail_put_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -82,14 +80,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS fii_future_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -97,14 +95,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS fii_call_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -112,14 +110,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS fii_put_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -127,14 +125,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS dii_future_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -142,14 +140,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS dii_call_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -157,14 +155,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS dii_put_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -172,14 +170,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS  proprietary_future_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -187,14 +185,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS  proprietary_call_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -202,14 +200,14 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS  proprietary_put_open_interest(
                 day_id INTEGER,
-                long_oi float(2) NOT NULL,
-                short_oi float(2) NOT NULL,
-                net_oi float(2) NOT NULL,
-                interday_change_in_long_oi float(2) NOT NULL,
-                interday_change_in_short_oi float(2) NOT NULL,
-                interday_change_in_net_oi float(2) NOT NULL,
-                interday_percentage_change_in_long_oi float(2) NOT NULL,
-                interday_percentage_change_in_short_oi float(2) NOT NULL,
+                long_oi NUMERIC NOT NULL,
+                short_oi NUMERIC NOT NULL,
+                net_oi NUMERIC NOT NULL,
+                interday_change_in_long_oi NUMERIC NOT NULL,
+                interday_change_in_short_oi NUMERIC NOT NULL,
+                interday_change_in_net_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_long_oi NUMERIC NOT NULL,
+                interday_percentage_change_in_short_oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE
@@ -217,10 +215,10 @@ def create_tables():
         """,
         """ CREATE TABLE IF NOT EXISTS  fii_future_crores(
                 day_id INTEGER,
-                buy float(2) NOT NULL,
-                sell float(2) NOT NULL,
-                net float(2) NOT NULL,
-                oi float(2) NOT NULL,
+                buy NUMERIC NOT NULL,
+                sell NUMERIC NOT NULL,
+                net NUMERIC NOT NULL,
+                oi NUMERIC NOT NULL,
                 FOREIGN KEY(day_id)
                     REFERENCES daily_cash(day_id)
                     ON DELETE CASCADE

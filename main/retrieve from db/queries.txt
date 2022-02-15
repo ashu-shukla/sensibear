@@ -1,0 +1,609 @@
+JSON STYLES
+///////////////////////////////////daily_cash///////////////////
+select json_agg(to_json(d))
+from (
+	select 
+		e.date as "date",
+		e.nifty_close as "close",
+		json_build_object(
+			'dii',json_build_object(
+				'buy',e.dii_cash_buy,
+				'sell', e.dii_cash_sell,
+				'net', e.dii_cash_net
+			),
+			'fii',json_build_object(
+				'buy',e.fii_cash_buy,
+				'sell', e.fii_cash_sell,
+				'net', e.fii_cash_net
+			)
+		) as cash
+	from daily_cash as e where e.day_id=20220211
+) as d;
+
+//////////////////////////////////// cash,date,candles //////////////////////////////
+select json_agg(to_json(d))
+from (
+	select 
+		e.date as "date",
+		e.nifty_close as "close",
+		json_build_object(
+			'dii',json_build_object(
+				'buy',e.dii_cash_buy,
+				'sell', e.dii_cash_sell,
+				'net', e.dii_cash_net
+			),
+			'fii',json_build_object(
+				'buy',e.fii_cash_buy,
+				'sell', e.fii_cash_sell,
+				'net', e.fii_cash_net
+			)
+		) as cash,
+		json_build_object(
+			'bullish', ca.bullish,
+			'bearish', ca.bearish
+		) as candlesticks
+	from daily_cash e, nifty_candlesticks ca where e.day_id=20220211 and e.day_id=ca.day_id
+) as d;
+////////////////////////////////////////////////////////
+select json_agg(to_json(d))
+from (
+	select 
+		e.date as "date",
+		e.nifty_close as "close",
+		json_build_object(
+			'dii',json_build_object(
+				'buy',e.dii_cash_buy,
+				'sell', e.dii_cash_sell,
+				'net', e.dii_cash_net
+			),
+			'fii',json_build_object(
+				'buy',e.fii_cash_buy,
+				'sell', e.fii_cash_sell,
+				'net', e.fii_cash_net
+			)
+		) as cash,
+		json_build_object(
+			'bullish', ca.bullish,
+			'bearish', ca.bearish
+		) as candlesticks,
+		json_build_object(
+			'retail', json_build_object(
+				'fut_oi',json_build_object(
+					'long_oi',retf.long_oi,
+					'short_oi',retf.short_oi,
+					'net_oi',retf.net_oi,
+					'interday_change_in_long_oi',retf.interday_change_in_long_oi
+				)
+			)
+		) as oi
+	from daily_cash e, nifty_candlesticks ca, retail_future_open_interest retf where e.day_id=20220211 and e.day_id=ca.day_id 
+	and e.day_id=retf.day_id
+) as d;
+
+///////////////////////////////////////////
+75ms
+select json_agg(to_json(d))
+from (
+	select 
+		e.date as "date",
+		e.nifty_close as "close",
+		json_build_object(
+			'dii',json_build_object(
+				'buy',e.dii_cash_buy,
+				'sell', e.dii_cash_sell,
+				'net', e.dii_cash_net
+			),
+			'fii',json_build_object(
+				'buy',e.fii_cash_buy,
+				'sell', e.fii_cash_sell,
+				'net', e.fii_cash_net
+			)
+		) as cash,
+		json_build_object(
+			'bullish', ca.bullish,
+			'bearish', ca.bearish
+		) as candlesticks,
+		json_build_object(
+			'retail', json_build_object(
+				'fut_oi',json_build_object(
+					'long_oi',retf.long_oi,
+					'short_oi',retf.short_oi,
+					'net_oi',retf.net_oi,
+					'interday_change_in_long_oi',retf.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',retf.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',retf.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',retf.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',retf.interday_change_in_net_oi
+				),
+				'call',json_build_object(
+					'long_oi',retc.long_oi,
+					'short_oi',retc.short_oi,
+					'net_oi',retc.net_oi,
+					'interday_change_in_long_oi',retc.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',retc.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',retc.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',retc.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',retc.interday_change_in_net_oi
+				),
+				'put',json_build_object(
+					'long_oi',retp.long_oi,
+					'short_oi',retp.short_oi,
+					'net_oi',retp.net_oi,
+					'interday_change_in_long_oi',retp.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',retp.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',retp.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',retp.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',retp.interday_change_in_net_oi
+				)
+			),
+			'dii', json_build_object(
+				'fut_oi',json_build_object(
+					'long_oi',diif.long_oi,
+					'short_oi',diif.short_oi,
+					'net_oi',diif.net_oi,
+					'interday_change_in_long_oi',diif.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',diif.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',diif.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',diif.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',diif.interday_change_in_net_oi
+				),
+				'call',json_build_object(
+					'long_oi',diic.long_oi,
+					'short_oi',diic.short_oi,
+					'net_oi',diic.net_oi,
+					'interday_change_in_long_oi',diic.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',diic.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',diic.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',diic.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',diic.interday_change_in_net_oi
+				),
+				'put',json_build_object(
+					'long_oi',diip.long_oi,
+					'short_oi',diip.short_oi,
+					'net_oi',diip.net_oi,
+					'interday_change_in_long_oi',diip.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',diip.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',diip.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',diip.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',diip.interday_change_in_net_oi
+				)
+			),
+			'fii', json_build_object(
+				'fut_oi',json_build_object(
+					'long_oi',fiif.long_oi,
+					'short_oi',fiif.short_oi,
+					'net_oi',fiif.net_oi,
+					'interday_change_in_long_oi',fiif.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',fiif.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',fiif.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',fiif.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',fiif.interday_change_in_net_oi
+				),
+				'call',json_build_object(
+					'long_oi',fiic.long_oi,
+					'short_oi',fiic.short_oi,
+					'net_oi',fiic.net_oi,
+					'interday_change_in_long_oi',fiic.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',fiic.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',fiic.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',fiic.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',fiic.interday_change_in_net_oi
+				),
+				'put',json_build_object(
+					'long_oi',fiip.long_oi,
+					'short_oi',fiip.short_oi,
+					'net_oi',fiip.net_oi,
+					'interday_change_in_long_oi',fiip.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',fiip.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',fiip.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',fiip.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',fiip.interday_change_in_net_oi
+				)
+			),
+			'prop', json_build_object(
+				'fut_oi',json_build_object(
+					'long_oi',prof.long_oi,
+					'short_oi',prof.short_oi,
+					'net_oi',prof.net_oi,
+					'interday_change_in_long_oi',prof.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',prof.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',prof.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',prof.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',prof.interday_change_in_net_oi
+				),
+				'call',json_build_object(
+					'long_oi',proc.long_oi,
+					'short_oi',proc.short_oi,
+					'net_oi',proc.net_oi,
+					'interday_change_in_long_oi',proc.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',proc.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',proc.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',proc.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',proc.interday_change_in_net_oi
+				),
+				'put',json_build_object(
+					'long_oi',prop.long_oi,
+					'short_oi',prop.short_oi,
+					'net_oi',prop.net_oi,
+					'interday_change_in_long_oi',prop.interday_change_in_long_oi,
+					'interday_percentage_change_in_long_oi',prop.interday_percentage_change_in_long_oi,
+                 	'interday_change_in_short_oi',prop.interday_change_in_short_oi,
+                 	'interday_percentage_change_in_short_oi',prop.interday_percentage_change_in_short_oi,
+                 	'interday_change_in_net_oi',prop.interday_change_in_net_oi
+				)
+			)
+		) as oi
+	from 
+		daily_cash e, 
+		nifty_candlesticks ca,
+		retail_future_open_interest retf, 
+		retail_call_open_interest retc, 
+		retail_put_open_interest retp ,
+		dii_future_open_interest diif, 
+		dii_call_open_interest diic, 
+		dii_put_open_interest diip,
+		fii_future_open_interest fiif, 
+		fii_call_open_interest fiic, 
+		fii_put_open_interest fiip,
+		proprietary_future_open_interest prof, 
+		proprietary_call_open_interest proc, 
+		proprietary_put_open_interest prop
+	where 
+		e.date BETWEEN '2022-02-07' AND '2022-02-15'
+		and e.day_id=ca.day_id 
+		and e.day_id=retf.day_id 
+		and e.day_id=retc.day_id 
+		and e.day_id=retp.day_id 
+		and e.day_id=diif.day_id 
+		and e.day_id=diic.day_id 
+		and e.day_id=diip.day_id
+		and e.day_id=fiif.day_id 
+		and e.day_id=fiic.day_id 
+		and e.day_id=fiip.day_id
+		and e.day_id=prof.day_id 
+		and e.day_id=proc.day_id 
+		and e.day_id=prop.day_id 
+) as d;
+
+////////////////////////////////////////////
+76ms
+select 
+	e.date as "date",
+	e.nifty_close as "close",
+	json_build_object(
+		'dii',json_build_object(
+			'buy',e.dii_cash_buy,
+			'sell', e.dii_cash_sell,
+			'net', e.dii_cash_net
+		),
+		'fii',json_build_object(
+			'buy',e.fii_cash_buy,
+			'sell', e.fii_cash_sell,
+			'net', e.fii_cash_net
+		)
+	) as cash,
+	json_build_object(
+		'bullish', ca.bullish,
+		'bearish', ca.bearish
+	) as candlesticks,
+	json_build_object(
+			'fut_oi',json_build_object(
+				'long_oi',retf.long_oi,
+				'short_oi',retf.short_oi,
+				'net_oi',retf.net_oi,
+				'interday_change_in_long_oi',retf.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',retf.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',retf.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',retf.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',retf.interday_change_in_net_oi
+			),
+			'call',json_build_object(
+				'long_oi',retc.long_oi,
+				'short_oi',retc.short_oi,
+				'net_oi',retc.net_oi,
+				'interday_change_in_long_oi',retc.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',retc.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',retc.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',retc.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',retc.interday_change_in_net_oi
+			),
+			'put',json_build_object(
+				'long_oi',retp.long_oi,
+				'short_oi',retp.short_oi,
+				'net_oi',retp.net_oi,
+				'interday_change_in_long_oi',retp.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',retp.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',retp.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',retp.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',retp.interday_change_in_net_oi
+			)
+		)as retail,
+		json_build_object(
+			'fut_oi',json_build_object(
+				'long_oi',diif.long_oi,
+				'short_oi',diif.short_oi,
+				'net_oi',diif.net_oi,
+				'interday_change_in_long_oi',diif.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',diif.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',diif.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',diif.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',diif.interday_change_in_net_oi
+			),
+			'call',json_build_object(
+				'long_oi',diic.long_oi,
+				'short_oi',diic.short_oi,
+				'net_oi',diic.net_oi,
+				'interday_change_in_long_oi',diic.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',diic.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',diic.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',diic.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',diic.interday_change_in_net_oi
+			),
+			'put',json_build_object(
+				'long_oi',diip.long_oi,
+				'short_oi',diip.short_oi,
+				'net_oi',diip.net_oi,
+				'interday_change_in_long_oi',diip.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',diip.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',diip.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',diip.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',diip.interday_change_in_net_oi
+			)
+		) as dii,
+		json_build_object(
+			'fut_oi',json_build_object(
+				'long_oi',fiif.long_oi,
+				'short_oi',fiif.short_oi,
+				'net_oi',fiif.net_oi,
+				'interday_change_in_long_oi',fiif.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',fiif.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',fiif.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',fiif.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',fiif.interday_change_in_net_oi
+			),
+			'call',json_build_object(
+				'long_oi',fiic.long_oi,
+				'short_oi',fiic.short_oi,
+				'net_oi',fiic.net_oi,
+				'interday_change_in_long_oi',fiic.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',fiic.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',fiic.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',fiic.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',fiic.interday_change_in_net_oi
+			),
+			'put',json_build_object(
+				'long_oi',fiip.long_oi,
+				'short_oi',fiip.short_oi,
+				'net_oi',fiip.net_oi,
+				'interday_change_in_long_oi',fiip.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',fiip.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',fiip.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',fiip.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',fiip.interday_change_in_net_oi
+			)
+		)as fii,
+		json_build_object(
+			'fut_oi',json_build_object(
+				'long_oi',prof.long_oi,
+				'short_oi',prof.short_oi,
+				'net_oi',prof.net_oi,
+				'interday_change_in_long_oi',prof.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',prof.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',prof.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',prof.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',prof.interday_change_in_net_oi
+			),
+			'call',json_build_object(
+				'long_oi',proc.long_oi,
+				'short_oi',proc.short_oi,
+				'net_oi',proc.net_oi,
+				'interday_change_in_long_oi',proc.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',proc.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',proc.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',proc.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',proc.interday_change_in_net_oi
+			),
+			'put',json_build_object(
+				'long_oi',prop.long_oi,
+				'short_oi',prop.short_oi,
+				'net_oi',prop.net_oi,
+				'interday_change_in_long_oi',prop.interday_change_in_long_oi,
+				'interday_percentage_change_in_long_oi',prop.interday_percentage_change_in_long_oi,
+				'interday_change_in_short_oi',prop.interday_change_in_short_oi,
+				'interday_percentage_change_in_short_oi',prop.interday_percentage_change_in_short_oi,
+				'interday_change_in_net_oi',prop.interday_change_in_net_oi
+			)
+		)as prop
+from 
+	daily_cash e, 
+	nifty_candlesticks ca,
+	retail_future_open_interest retf, 
+	retail_call_open_interest retc, 
+	retail_put_open_interest retp ,
+	dii_future_open_interest diif, 
+	dii_call_open_interest diic, 
+	dii_put_open_interest diip,
+	fii_future_open_interest fiif, 
+	fii_call_open_interest fiic, 
+	fii_put_open_interest fiip,
+	proprietary_future_open_interest prof, 
+	proprietary_call_open_interest proc, 
+	proprietary_put_open_interest prop
+where 
+	e.date BETWEEN '2022-02-07' AND '2022-02-15'
+	and e.day_id=ca.day_id 
+	and e.day_id=retf.day_id 
+	and e.day_id=retc.day_id 
+	and e.day_id=retp.day_id 
+	and e.day_id=diif.day_id 
+	and e.day_id=diic.day_id 
+	and e.day_id=diip.day_id
+	and e.day_id=fiif.day_id 
+	and e.day_id=fiic.day_id 
+	and e.day_id=fiip.day_id
+	and e.day_id=prof.day_id 
+	and e.day_id=proc.day_id 
+	and e.day_id=prop.day_id 
+
+
+///////////////////////////////////////////
+50ms
+select 
+	e.date as "date",
+	e.nifty_close as "close",
+	e.dii_cash_buy as "dii_cash_buy",
+	e.dii_cash_sell as "dii_cash_sell",
+	e.dii_cash_net as "dii_cash_net",
+	e.fii_cash_buy as "fii_cash_buy",
+	e.fii_cash_sell as "fii_cash_sell",
+	e.fii_cash_net as "fii_cash_net",
+	ca.bullish as "bullish",
+	ca.bearish as "bearish",
+	retf.long_oi as "retail_future_long_oi",
+	retf.short_oi as "retail_future_short_oi",
+	retf.net_oi as "retail_future_net_oi",
+	retf.interday_change_in_long_oi as "retail_future_interday_change_in_long_oi",
+	retf.interday_percentage_change_in_long_oi as "retail_future_interday_percentage_change_in_long_oi",
+    retf.interday_change_in_short_oi as "retail_future_interday_change_in_short_oi",
+    retf.interday_percentage_change_in_short_oi as "retail_future_interday_percentage_change_in_short_oi",
+    retf.interday_change_in_net_oi as "retail_future_interday_change_in_net_oi",
+	retc.long_oi as "retail_call_long_oi",
+	retc.short_oi as "retail_call_short_oi",
+	retc.net_oi as "retail_call_net_oi",
+	retc.interday_change_in_long_oi as "retail_call_interday_change_in_long_oi",
+	retc.interday_percentage_change_in_long_oi as "retail_call_interday_percentage_change_in_long_oi",
+    retc.interday_change_in_short_oi as "retail_call_interday_change_in_short_oi",
+    retc.interday_percentage_change_in_short_oi as "retail_call_interday_percentage_change_in_short_oi",
+    retc.interday_change_in_net_oi as "retail_call_interday_change_in_net_oi",
+	retp.long_oi as "retail_put_long_oi",
+	retp.short_oi as "retail_put_short_oi",
+	retp.net_oi as "retail_put_net_oi",
+	retp.interday_change_in_long_oi as "retail_put_interday_change_in_long_oi",
+	retp.interday_percentage_change_in_long_oi as "retail_put_interday_percentage_change_in_long_oi",
+    retp.interday_change_in_short_oi as "retail_put_interday_change_in_short_oi",
+    retp.interday_percentage_change_in_short_oi as "retail_put_interday_percentage_change_in_short_oi",
+    retp.interday_change_in_net_oi as "retail_put_interday_change_in_net_oi",			
+	diif.long_oi as "dii_future_long_oi",
+	diif.short_oi as "dii_future_short_oi",
+	diif.net_oi as "dii_future_net_oi",
+	diif.interday_change_in_long_oi as "dii_future_interday_change_in_long_oi",
+	diif.interday_percentage_change_in_long_oi as "dii_future_interday_percentage_change_in_long_oi",
+    diif.interday_change_in_short_oi as "dii_future_interday_change_in_short_oi",
+    diif.interday_percentage_change_in_short_oi as "dii_future_interday_percentage_change_in_short_oi",
+    diif.interday_change_in_net_oi as "dii_future_interday_change_in_net_oi",
+	diic.long_oi as "dii_call_long_oi",
+	diic.short_oi as "dii_call_short_oi",
+	diic.net_oi as "dii_call_net_oi",
+	diic.interday_change_in_long_oi as "dii_call_interday_change_in_long_oi",
+	diic.interday_percentage_change_in_long_oi as "dii_call_interday_percentage_change_in_long_oi",
+    diic.interday_change_in_short_oi as "dii_call_interday_change_in_short_oi",
+    diic.interday_percentage_change_in_short_oi as "dii_call_interday_percentage_change_in_short_oi",
+    diic.interday_change_in_net_oi as "dii_call_interday_change_in_net_oi",
+	diip.long_oi as "dii_put_long_oi",
+	diip.short_oi as "dii_put_short_oi",
+	diip.net_oi as "dii_put_net_oi",
+	diip.interday_change_in_long_oi as "dii_put_interday_change_in_long_oi",
+	diip.interday_percentage_change_in_long_oi as "dii_put_interday_percentage_change_in_long_oi",
+    diip.interday_change_in_short_oi as "dii_put_interday_change_in_short_oi",
+    diip.interday_percentage_change_in_short_oi as "dii_put_interday_percentage_change_in_short_oi",
+    diip.interday_change_in_net_oi as "dii_put_interday_change_in_net_oi",
+	fiif.long_oi as "fii_future_long_oi",
+	fiif.short_oi as "fii_future_short_oi",
+	fiif.net_oi as "fii_future_net_oi",
+	fiif.interday_change_in_long_oi as "fii_future_interday_change_in_long_oi",
+	fiif.interday_percentage_change_in_long_oi as "fii_future_interday_percentage_change_in_long_oi",
+    fiif.interday_change_in_short_oi as "fii_future_interday_change_in_short_oi",
+    fiif.interday_percentage_change_in_short_oi as "fii_future_interday_percentage_change_in_short_oi",
+    fiif.interday_change_in_net_oi as "fii_future_interday_change_in_net_oi",
+	fiic.long_oi as "fii_call_long_oi",
+	fiic.short_oi as "fii_call_short_oi",
+	fiic.net_oi as "fii_call_net_oi",
+	fiic.interday_change_in_long_oi as "fii_call_interday_change_in_long_oi",
+	fiic.interday_percentage_change_in_long_oi as "fii_call_interday_percentage_change_in_long_oi",
+    fiic.interday_change_in_short_oi as "fii_call_interday_change_in_short_oi",
+    fiic.interday_percentage_change_in_short_oi as "fii_call_interday_percentage_change_in_short_oi",
+    fiic.interday_change_in_net_oi as "fii_call_interday_change_in_net_oi",
+	fiip.long_oi as "fii_put_long_oi",
+	fiip.short_oi as "fii_put_short_oi",
+	fiip.net_oi as "fii_put_net_oi",
+	fiip.interday_change_in_long_oi as "fii_put_interday_change_in_long_oi",
+	fiip.interday_percentage_change_in_long_oi as "fii_put_interday_percentage_change_in_long_oi",
+    fiip.interday_change_in_short_oi as "fii_put_interday_change_in_short_oi",
+    fiip.interday_percentage_change_in_short_oi as "fii_put_interday_percentage_change_in_short_oi",
+    fiip.interday_change_in_net_oi as "fii_put_interday_change_in_net_oi",
+	prof.long_oi as "pro_future_long_oi",
+	prof.short_oi as "pro_future_short_oi",
+	prof.net_oi as "pro_future_net_oi",
+	prof.interday_change_in_long_oi as "pro_future_interday_change_in_long_oi",
+	prof.interday_percentage_change_in_long_oi as "pro_future_interday_percentage_change_in_long_oi",
+    prof.interday_change_in_short_oi as "pro_future_interday_change_in_short_oi",
+    prof.interday_percentage_change_in_short_oi as "pro_future_interday_percentage_change_in_short_oi",
+    prof.interday_change_in_net_oi as "pro_future_interday_change_in_net_oi",
+	proc.long_oi as "pro_call_long_oi",
+	proc.short_oi as "pro_call_short_oi",
+	proc.net_oi as "pro_call_net_oi",
+	proc.interday_change_in_long_oi as "pro_call_interday_change_in_long_oi",
+	proc.interday_percentage_change_in_long_oi as "pro_call_interday_percentage_change_in_long_oi",
+    proc.interday_change_in_short_oi as "pro_call_interday_change_in_short_oi",
+    proc.interday_percentage_change_in_short_oi as "pro_call_interday_percentage_change_in_short_oi",
+    proc.interday_change_in_net_oi as "pro_call_interday_change_in_net_oi",
+	prop.long_oi as "pro_put_long_oi",
+	prop.short_oi as "pro_put_short_oi",
+	prop.net_oi as "pro_put_net_oi",
+	prop.interday_change_in_long_oi as "pro_put_interday_change_in_long_oi",
+	prop.interday_percentage_change_in_long_oi as "pro_put_interday_percentage_change_in_long_oi",
+    prop.interday_change_in_short_oi as "pro_put_interday_change_in_short_oi",
+    prop.interday_percentage_change_in_short_oi as "pro_put_interday_percentage_change_in_short_oi",
+    prop.interday_change_in_net_oi as "pro_put_interday_change_in_net_oi"
+	from 
+		daily_cash e, 
+		nifty_candlesticks ca,
+		retail_future_open_interest retf, 
+		retail_call_open_interest retc, 
+		retail_put_open_interest retp ,
+		dii_future_open_interest diif, 
+		dii_call_open_interest diic, 
+		dii_put_open_interest diip,
+		fii_future_open_interest fiif, 
+		fii_call_open_interest fiic, 
+		fii_put_open_interest fiip,
+		proprietary_future_open_interest prof, 
+		proprietary_call_open_interest proc, 
+		proprietary_put_open_interest prop
+	where 
+		e.date BETWEEN '2022-02-07' AND '2022-02-15'
+		and e.day_id=ca.day_id 
+		and e.day_id=retf.day_id 
+		and e.day_id=retc.day_id 
+		and e.day_id=retp.day_id 
+		and e.day_id=diif.day_id 
+		and e.day_id=diic.day_id 
+		and e.day_id=diip.day_id
+		and e.day_id=fiif.day_id 
+		and e.day_id=fiic.day_id 
+		and e.day_id=fiip.day_id
+		and e.day_id=prof.day_id 
+		and e.day_id=proc.day_id 
+		and e.day_id=prop.day_id 
+
+
+
+
+
+	
+
+ALTER TABLE daily_cash ALTER COLUMN dii_cash_buy TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN dii_cash_sell TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN dii_cash_net TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN fii_cash_buy TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN fii_cash_sell TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN fii_cash_net TYPE NUMERIC;
+
+ALTER TABLE daily_cash ALTER COLUMN oi TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN interday_percentage_change_in_long_oi TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN interday_change_in_short_oi TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN interday_percentage_change_in_short_oi TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN interday_change_in_net_oi TYPE NUMERIC;
+ALTER TABLE daily_cash ALTER COLUMN net_oi TYPE NUMERIC;
+
+select * from retail_put_open_interest;

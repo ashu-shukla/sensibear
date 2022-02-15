@@ -1,0 +1,91 @@
+CREATE TABLE IF NOT EXISTS  fno_expiry_dates(
+                day_id INTEGER PRIMARY KEY,
+                expiry_date DATE NOT NULL,
+                last_updated TIMESTAMP NOT NULL default current_timestamp)
+
+CREATE OR REPLACE FUNCTION update_last_updated_column()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.last_updated = now(); 
+   RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+CREATE TRIGGER last_updated_changes
+  BEFORE UPDATE
+  ON fno_expiry_dates
+  FOR EACH ROW
+  EXECUTE PROCEDURE update_last_updated_column();
+
+
+INSERT INTO fno_expiry_dates(day_id,expiry_date)
+VALUES
+    (20220217,'2022-02-17'),
+    (2022024,'2022-02-24'),
+    (20220309,'2022-03-09'),
+    (20220316,'2022-03-16')
+
+
+INSERT INTO fno_expiry_dates(day_id,expiry_date)
+VALUES
+    (2022024,'2022-02-23')
+ON CONFLICT (day_id)
+DO 
+    UPDATE SET expiry_date= EXCLUDED.expiry_date;
+
+select * from fno_expiry_dates;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+CREATE TABLE IF NOT EXISTS  option_chain(
+                day_id INTEGER,
+                expiry_date DATE NOT NULL,
+                strikePrice NUMERIC,
+                last_updated TIMESTAMP NOT NULL default current_timestamp,
+                underlying VARCHAR(40),
+                underlyingValue NUMERIC NOT NULL,
+                ce_openInterest NUMERIC NOT NULL,
+                ce_changeinOpenInterest NUMERIC NOT NULL,
+                ce_pchangeinOpenInterest NUMERIC NOT NULL,
+                ce_impliedVolatility NUMERIC NOT NULL,
+                ce_lastPrice NUMERIC NOT NULL,
+                ce_change NUMERIC NOT NULL,
+                ce_pChange NUMERIC NOT NULL,
+                ce_totalBuyQuantity NUMERIC NOT NULL,
+                ce_totalSellQuantity NUMERIC NOT NULL,
+                pe_openInterest NUMERIC NOT NULL,
+                pe_changeinOpenInterest NUMERIC NOT NULL,
+                pe_pchangeinOpenInterest NUMERIC NOT NULL,
+                pe_impliedVolatility NUMERIC NOT NULL,
+                pe_lastPrice NUMERIC NOT NULL,
+                pe_change NUMERIC NOT NULL,
+                pe_pChange NUMERIC NOT NULL,
+                pe_totalBuyQuantity NUMERIC NOT NULL,
+                pe_totalSellQuantity NUMERIC NOT NULL)
+
+INSERT INTO historical_option_chain(
+                day_id,
+                date,
+                expiry_date,
+                strike_price,
+                underlying,
+                underlyingValue,
+                ce_openInterest ,
+                ce_changeinOpenInterest ,
+                ce_pchangeinOpenInterest ,
+                ce_impliedVolatility ,
+                ce_lastPrice ,
+                ce_change ,
+                ce_pChange ,
+                ce_totalBuyQuantity ,
+                ce_totalSellQuantity ,
+                pe_openInterest ,
+                pe_changeinOpenInterest ,
+                pe_pchangeinOpenInterest ,
+                pe_impliedVolatility ,
+                pe_lastPrice ,
+                pe_change ,
+                pe_pChange ,
+                pe_totalBuyQuantity ,
+                pe_totalSellQuantity)
+VALUES
+    (20220217,'2022-02-17',16900,'NIFTY',17347,3000,23,1.5,18,35,-300,40,0,50,3000,23,1.5,18,35,-300,40,0,50)
