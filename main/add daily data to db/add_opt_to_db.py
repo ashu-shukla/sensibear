@@ -3,6 +3,8 @@ from config import config
 import requests
 from datetime import datetime
 
+# To scrape any NSE link.
+
 
 def nsefetch(payload):
     headers = {
@@ -28,10 +30,11 @@ def nsefetch(payload):
     return output
 
 
+# Obtaining the option chain data from NSE.
 option_chain_url = 'https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY'
 r = nsefetch(option_chain_url)
 
-# Expiry Dates
+# Expiry Dates Dictionary.
 unformatted_expiry_dates = r['records']['expiryDates']
 expiry_dates = []
 for date in unformatted_expiry_dates:
@@ -43,6 +46,8 @@ strikes = r['records']['data']
 today = datetime.today()
 json_date_format = today.strftime('%Y-%m-%d')
 
+# PSQL query to add or update list of expiry dates in DB.
+
 
 def add_expiry_dates(cur):
     sql = 'INSERT INTO fno_nifty_expiry_dates(day_id,expiry_date)VALUES(%s,%s)ON CONFLICT (day_id) DO UPDATE SET expiry_date= EXCLUDED.expiry_date;'
@@ -50,6 +55,8 @@ def add_expiry_dates(cur):
         day_id = expiry_date.replace('-', "")
         cur.execute(sql, (day_id, expiry_date))
     print(f'Expiry dates added or updated to DB!')
+
+# PSQL query to add the entire option chain data to DB.
 
 
 def add_option_chain(cur):
@@ -80,6 +87,7 @@ def add_option_chain(cur):
     for strike in strikes:
         id = datetime.strptime(
             strike['expiryDate'], '%d-%b-%Y').strftime('%Y%m%d')
+        # Few Strikes either dont contain CE or PE so adding 0 to those places.
         if 'CE' not in strike:
             ce_openInterest = 0
             ce_changeinOpenInterest = 0
@@ -144,10 +152,10 @@ def add_option_chain(cur):
                               pe_totalSellQuantity
                               )
                         )
-    print(f'Strike data added or updated to DB!')
+    print(f'Strikes data added to DB!')
 
 
-def insert_data_in_postgres():
+def insert_option_data_in_postgres():
     conn = None
     try:
         # read database configuration
@@ -170,4 +178,4 @@ def insert_data_in_postgres():
             conn.close()
 
 
-insert_data_in_postgres()
+insert_option_data_in_postgres()

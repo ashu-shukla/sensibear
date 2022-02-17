@@ -1,6 +1,6 @@
 import talib
 from nsepy import get_history
-from datetime import datetime, timedelta, time, date
+from datetime import datetime, timedelta
 
 
 candlestick_patterns = {

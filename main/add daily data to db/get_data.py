@@ -187,7 +187,7 @@ def previous_data_compare(new_data):
         for derivative in derivatives_keys:
             new_derivatives[derivative]['interday_change_in_long_oi'] = new_derivatives[derivative]['long_oi'] - \
                 recent_derivatives[derivative]['long_oi']
-            # Percentage change, if divide by zero then 0 as of now.
+            # Percentage change, if divide by zero error then 0 as of now.
             new_derivatives[derivative]['interday_percentage_change_in_long_oi'] = (
                 new_derivatives[derivative]['interday_change_in_long_oi'] / recent_derivatives[derivative]['long_oi'])*100 if recent_derivatives[derivative]['long_oi'] else 0
             new_derivatives[derivative]['interday_change_in_short_oi'] = new_derivatives[derivative]['short_oi'] - \

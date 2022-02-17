@@ -1,6 +1,5 @@
 import psycopg2
 from config import config
-from datetime import datetime
 
 
 def add_daily_data(data):
@@ -49,7 +48,6 @@ def add_daily_data(data):
 
     def insert_data_in_postgres():
         conn = None
-        vendor_id = None
         try:
             # read database configuration
             params = config()
@@ -75,7 +73,5 @@ def add_daily_data(data):
         finally:
             if conn is not None:
                 conn.close()
-
-        return vendor_id
-
+    # Finally insert data of the day to DB.
     insert_data_in_postgres()

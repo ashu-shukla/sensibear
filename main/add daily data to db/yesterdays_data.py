@@ -1,6 +1,5 @@
 import psycopg2
 import itertools
-import json
 from config import config
 
 
@@ -10,7 +9,7 @@ def get_oi(cur, previous_date):
     fii = {}
     dii = {}
     pro = {}
-    # Function will get OI for all the participants and return a JSON.
+    # Function will get OI for all the participants and return a JSON from the DB.
     participants = ['retail', 'fii', 'dii', 'proprietary']
     derivatives = {'future': 'fut_oi', 'call': 'call', 'put': 'put'}
     for participant in participants:
@@ -69,7 +68,7 @@ def get_yesterdays_data():
         print(f'Latest Date Obtained from DB: {last_date}')
         data = get_oi(cur, last_date)
         dates = get_list_of_dates(cur)
-        print('Obtained list of dates, latest date and latest dates OI data!')
+        print("Obtained list of dates, latest date and latest date's OI data!")
         cur.close()
         # commit the changes
         conn.commit()

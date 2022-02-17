@@ -1,0 +1,8 @@
+autopep8
+nsepy
+numpy
+pandas
+psycopg2
+requests
+TA-Lib @ file:///D:/bld/ta-lib_1618425566546/work
+yfinance
