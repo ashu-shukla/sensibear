@@ -61,7 +61,7 @@ def get_yesterdays_data():
         params = config()
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
-        print('Connected to DB!')
+        print('\nGetting latest date data from DB...')
         cur = conn.cursor()
         # get data
         last_date = get_max_date(cur)
@@ -79,4 +79,3 @@ def get_yesterdays_data():
     finally:
         if conn is not None:
             conn.close()
-            print('Closed DB Connection!')

@@ -924,6 +924,792 @@
                 "net": 2276.1,
                 "oi": 145316
             }
+        },
+        "14-Feb-2022": {
+            "candlesticks": {
+                "bullish": [],
+                "bearish": [
+                    "Long Line Candle"
+                ]
+            },
+            "close ": 16842.80078125,
+            "date ": "2022-02-14 ",
+            "cash ": {
+                "dii ": {
+                    "buy ": 7698.04,
+                    "sell ": 5527.75,
+                    "net ": 2170.29
+                },
+                "fii ": {
+                    "buy ": 5457.75,
+                    "sell ": 9711.45,
+                    "net ": -4253.7
+                }
+            },
+            "oi ": {
+                "retail ": {
+                    "fut_oi ": {
+                        "long_oi ": 205819,
+                        "short_oi ": 161990,
+                        "net_oi ": 43829,
+                        "interday_change_in_long_oi ": 27354,
+                        "interday_percentage_change_in_long_oi ": 15.32737511556887905191494131,
+                        "interday_change_in_short_oi ": -9194,
+                        "interday_percentage_change_in_short_oi ": -5.370829049443873259183101224,
+                        "interday_change_in_net_oi ": 36548
+                    },
+                    "call ": {
+                        "long_oi ": 2850770,
+                        "short_oi ": 2618585,
+                        "net_oi ": 232185,
+                        "interday_change_in_long_oi ": 1133329,
+                        "interday_percentage_change_in_long_oi ": 65.98939934472275903509931346,
+                        "interday_change_in_short_oi ": 820035,
+                        "interday_percentage_change_in_short_oi ": 45.59422868421784215062133385,
+                        "interday_change_in_net_oi ": 313294
+                    },
+                    "put ": {
+                        "long_oi ": 1627766,
+                        "short_oi ": 1914684,
+                        "net_oi ": -286918,
+                        "interday_change_in_long_oi ": 45569,
+                        "interday_percentage_change_in_long_oi ": 2.880109114098939638995649720,
+                        "interday_change_in_short_oi ": 53249,
+                        "interday_percentage_change_in_short_oi ": 2.860642461326879531114435906,
+                        "interday_change_in_net_oi ": -7680
+                    }
+                },
+                "dii ": {
+                    "fut_oi ": {
+                        "long_oi ": 19206,
+                        "short_oi ": 50520,
+                        "net_oi ": -31314,
+                        "interday_change_in_long_oi ": -2003,
+                        "interday_percentage_change_in_long_oi ": -9.444103918147956056391154698,
+                        "interday_change_in_short_oi ": -12820,
+                        "interday_percentage_change_in_short_oi ": -20.23997473950110514682664983,
+                        "interday_change_in_net_oi ": 10817
+                    },
+                    "call ": {
+                        "long_oi ": 819,
+                        "short_oi ": 0,
+                        "net_oi ": 819,
+                        "interday_change_in_long_oi ": 0,
+                        "interday_percentage_change_in_long_oi ": 0,
+                        "interday_change_in_short_oi ": 0,
+                        "interday_percentage_change_in_short_oi ": 0,
+                        "interday_change_in_net_oi ": 0
+                    },
+                    "put ": {
+                        "long_oi ": 48056,
+                        "short_oi ": 0,
+                        "net_oi ": 48056,
+                        "interday_change_in_long_oi ": 6087,
+                        "interday_percentage_change_in_long_oi ": 14.50356215301770354309132931,
+                        "interday_change_in_short_oi ": 0,
+                        "interday_percentage_change_in_short_oi ": 0,
+                        "interday_change_in_net_oi ": 6087
+                    }
+                },
+                "fii ": {
+                    "fut_oi ": {
+                        "long_oi ": 72004,
+                        "short_oi ": 80301,
+                        "net_oi ": -8297,
+                        "interday_change_in_long_oi ": -44652,
+                        "interday_percentage_change_in_long_oi ": -38.27664243587985187217116994,
+                        "interday_change_in_short_oi ": 1108,
+                        "interday_percentage_change_in_short_oi ": 1.399113558016491356559291857,
+                        "interday_change_in_net_oi ": -45760
+                    },
+                    "call ": {
+                        "long_oi ": 383843,
+                        "short_oi ": 314722,
+                        "net_oi ": 69121,
+                        "interday_change_in_long_oi ": 5814,
+                        "interday_percentage_change_in_long_oi ": 1.537977245131987228493052120,
+                        "interday_change_in_short_oi ": 43312,
+                        "interday_percentage_change_in_short_oi ": 15.95814450462400058951401938,
+                        "interday_change_in_net_oi ": -37498
+                    },
+                    "put ": {
+                        "long_oi ": 540172,
+                        "short_oi ": 287768,
+                        "net_oi ": 252404,
+                        "interday_change_in_long_oi ": 49263,
+                        "interday_percentage_change_in_long_oi ": 10.03505741389952109250390602,
+                        "interday_change_in_short_oi ": -4558,
+                        "interday_percentage_change_in_short_oi ": -1.559218133180079773950999911,
+                        "interday_change_in_net_oi ": 53821
+                    }
+                },
+                "prop ": {
+                    "fut_oi ": {
+                        "long_oi ": 28119,
+                        "short_oi ": 32337,
+                        "net_oi ": -4218,
+                        "interday_change_in_long_oi ": 1794,
+                        "interday_percentage_change_in_long_oi ": 6.814814814814814814814814815,
+                        "interday_change_in_short_oi ": 3399,
+                        "interday_percentage_change_in_short_oi ": 11.74580136844287787684014099,
+                        "interday_change_in_net_oi ": -1605
+                    },
+                    "call ": {
+                        "long_oi ": 705573,
+                        "short_oi ": 1007698,
+                        "net_oi ": -302125,
+                        "interday_change_in_long_oi ": 149321,
+                        "interday_percentage_change_in_long_oi ": 26.84412820088736759598167737,
+                        "interday_change_in_short_oi ": 425117,
+                        "interday_percentage_change_in_short_oi ": 72.97131214371907082448620878,
+                        "interday_change_in_net_oi ": -275796
+                    },
+                    "put ": {
+                        "long_oi ": 602644,
+                        "short_oi ": 616185,
+                        "net_oi ": -13541,
+                        "interday_change_in_long_oi ": 22045,
+                        "interday_percentage_change_in_long_oi ": 3.796940745678170303428011416,
+                        "interday_change_in_short_oi ": 74273,
+                        "interday_percentage_change_in_short_oi ": 13.70573081976409453933479975,
+                        "interday_change_in_net_oi ": -52228
+                    }
+                }
+            },
+            "fii_future_crores ": {
+                "buy ": 5770.34,
+                "sell ": 6023.11,
+                "net ": -252.77,
+                "oi ": 152305
+            }
+        },
+        "15-Feb-2022": {
+            "candlesticks": {
+                "bullish": [
+                    "Closing Marubozu"
+                ],
+                "bearish": []
+            },
+            "close": 17352.44,
+            "date": "2022-02-15",
+            "cash": {
+                "dii": {
+                    "buy": 4992.67,
+                    "sell": 3063.59,
+                    "net": 1929.08
+                },
+                "fii": {
+                    "buy": 4314.48,
+                    "sell": 6844.44,
+                    "net": -2529.96
+                }
+            },
+            "oi": {
+                "retail": {
+                    "fut_oi": {
+                        "long_oi": 185443,
+                        "short_oi": 167085,
+                        "net_oi": 18358,
+                        "interday_change_in_long_oi": -20376,
+                        "interday_percentage_change_in_long_oi": -9.899960645032771512834092091,
+                        "interday_change_in_short_oi": 5095,
+                        "interday_percentage_change_in_short_oi": 3.145255879992592135316994876,
+                        "interday_change_in_net_oi": -25471
+                    },
+                    "call": {
+                        "long_oi": 2337190,
+                        "short_oi": 2367723,
+                        "net_oi": -30533,
+                        "interday_change_in_long_oi": -513580,
+                        "interday_percentage_change_in_long_oi": -18.01548353602710846543214640,
+                        "interday_change_in_short_oi": -250867,
+                        "interday_percentage_change_in_short_oi": -9.580232109646794649028675738,
+                        "interday_change_in_net_oi": -262713
+                    },
+                    "put": {
+                        "long_oi": 2267498,
+                        "short_oi": 2441017,
+                        "net_oi": -173519,
+                        "interday_change_in_long_oi": 639728,
+                        "interday_percentage_change_in_long_oi": 39.30088403152779569595213083,
+                        "interday_change_in_short_oi": 526337,
+                        "interday_percentage_change_in_short_oi": 27.48955439028976121336202394,
+                        "interday_change_in_net_oi": 113391
+                    }
+                },
+                "dii": {
+                    "fut_oi": {
+                        "long_oi": 19135,
+                        "short_oi": 47820,
+                        "net_oi": -28685,
+                        "interday_change_in_long_oi": -71,
+                        "interday_percentage_change_in_long_oi": -0.3696761428720191606789544934,
+                        "interday_change_in_short_oi": -2700,
+                        "interday_percentage_change_in_short_oi": -5.344418052256532066508313539,
+                        "interday_change_in_net_oi": 2629
+                    },
+                    "call": {
+                        "long_oi": 819,
+                        "short_oi": 0,
+                        "net_oi": 819,
+                        "interday_change_in_long_oi": 0,
+                        "interday_percentage_change_in_long_oi": 0,
+                        "interday_change_in_short_oi": 0,
+                        "interday_percentage_change_in_short_oi": 0,
+                        "interday_change_in_net_oi": 0
+                    },
+                    "put": {
+                        "long_oi": 42076,
+                        "short_oi": 0,
+                        "net_oi": 42076,
+                        "interday_change_in_long_oi": -5980,
+                        "interday_percentage_change_in_long_oi": -12.44381554852671882803396038,
+                        "interday_change_in_short_oi": 0,
+                        "interday_percentage_change_in_short_oi": 0,
+                        "interday_change_in_net_oi": -5980
+                    }
+                },
+                "fii": {
+                    "fut_oi": {
+                        "long_oi": 88289,
+                        "short_oi": 76181,
+                        "net_oi": 12108,
+                        "interday_change_in_long_oi": 16285,
+                        "interday_percentage_change_in_long_oi": 22.61679906671851563802010999,
+                        "interday_change_in_short_oi": -4120,
+                        "interday_percentage_change_in_short_oi": -5.130695757213484265451239711,
+                        "interday_change_in_net_oi": 20405
+                    },
+                    "call": {
+                        "long_oi": 482347,
+                        "short_oi": 332199,
+                        "net_oi": 150148,
+                        "interday_change_in_long_oi": 98504,
+                        "interday_percentage_change_in_long_oi": 25.66257558428836790041761866,
+                        "interday_change_in_short_oi": 17477,
+                        "interday_percentage_change_in_short_oi": 5.553154847770413253601591246,
+                        "interday_change_in_net_oi": 81027
+                    },
+                    "put": {
+                        "long_oi": 580504,
+                        "short_oi": 321365,
+                        "net_oi": 259139,
+                        "interday_change_in_long_oi": 40332,
+                        "interday_percentage_change_in_long_oi": 7.466510666972742015506172108,
+                        "interday_change_in_short_oi": 33597,
+                        "interday_percentage_change_in_short_oi": 11.67502988518528814878652248,
+                        "interday_change_in_net_oi": 6735
+                    }
+                },
+                "prop": {
+                    "fut_oi": {
+                        "long_oi": 30213,
+                        "short_oi": 31994,
+                        "net_oi": -1781,
+                        "interday_change_in_long_oi": 2094,
+                        "interday_percentage_change_in_long_oi": 7.446922010028806145310999680,
+                        "interday_change_in_short_oi": -343,
+                        "interday_percentage_change_in_short_oi": -1.060704456195689148653245508,
+                        "interday_change_in_net_oi": 2437
+                    },
+                    "call": {
+                        "long_oi": 784809,
+                        "short_oi": 905243,
+                        "net_oi": -120434,
+                        "interday_change_in_long_oi": 79236,
+                        "interday_percentage_change_in_long_oi": 11.23002155694733216832276745,
+                        "interday_change_in_short_oi": -102457,
+                        "interday_percentage_change_in_short_oi": -10.16741093579438324898283219,
+                        "interday_change_in_net_oi": 181693
+                    },
+                    "put": {
+                        "long_oi": 691219,
+                        "short_oi": 818914,
+                        "net_oi": -127695,
+                        "interday_change_in_long_oi": 88575,
+                        "interday_percentage_change_in_long_oi": 14.69773199434492005230285210,
+                        "interday_change_in_short_oi": 202729,
+                        "interday_percentage_change_in_short_oi": 32.90067106469647914181617534,
+                        "interday_change_in_net_oi": -114154
+                    }
+                }
+            },
+            "fii_future_crores": {
+                "buy": 7787.18,
+                "sell": 6038.29,
+                "net": 1748.89,
+                "oi": 164470
+            }
+        },
+        "16-Feb-2022": {
+            "candlesticks": {
+                "bullish": [],
+                "bearish": []
+            },
+            "close": 17322.19921875,
+            "date": "2022-02-16",
+            "cash": {
+                " dii ": {
+                    " buy ": 5334.30,
+                    " sell ": 4154.16,
+                    " net ": 1180.14
+                },
+                " fii ": {
+                    " buy ": 5879.05,
+                    " sell ": 7770.01,
+                    " net ": -1890.96
+                }
+            },
+            "oi": {
+                "retail": {
+                    "fut_oi": {
+                        "long_oi": 183937,
+                        "short_oi": 167062,
+                        "net_oi": 16875,
+                        "interday_change_in_long_oi": -1506,
+                        "interday_percentage_change_in_long_oi": -0.8121093813193272326267370567,
+                        "interday_change_in_short_oi": -23,
+                        "interday_percentage_change_in_short_oi": -0.01376544872370350420444683844,
+                        "interday_change_in_net_oi": -1483
+                    },
+                    "call": {
+                        "long_oi": 2845456,
+                        "short_oi": 2719078,
+                        "net_oi": 126378,
+                        "interday_change_in_long_oi": 508266,
+                        "interday_percentage_change_in_long_oi": 21.74688407874413291174444525,
+                        "interday_change_in_short_oi": 351355,
+                        "interday_percentage_change_in_short_oi": 14.83936254367592830749205038,
+                        "interday_change_in_net_oi": 156911
+                    },
+                    "put": {
+                        "long_oi": 2306701,
+                        "short_oi": 2513961,
+                        "net_oi": -207260,
+                        "interday_change_in_long_oi": 39203,
+                        "interday_percentage_change_in_long_oi": 1.728910014474103174512171565,
+                        "interday_change_in_short_oi": 72944,
+                        "interday_percentage_change_in_short_oi": 2.988262679039105422043353242,
+                        "interday_change_in_net_oi": -33741
+                    }
+                },
+                "dii": {
+                    "fut_oi": {
+                        "long_oi": 19228,
+                        "short_oi": 59524,
+                        "net_oi": -40296,
+                        "interday_change_in_long_oi": 93,
+                        "interday_percentage_change_in_long_oi": 0.4860203814998693493598118631,
+                        "interday_change_in_short_oi": 11704,
+                        "interday_percentage_change_in_short_oi": 24.47511501463822668339606859,
+                        "interday_change_in_net_oi": -11611
+                    },
+                    "call": {
+                        "long_oi": 819,
+                        "short_oi": 0,
+                        "net_oi": 819,
+                        "interday_change_in_long_oi": 0,
+                        "interday_percentage_change_in_long_oi": 0,
+                        "interday_change_in_short_oi": 0,
+                        "interday_percentage_change_in_short_oi": 0,
+                        "interday_change_in_net_oi": 0
+                    },
+                    "put": {
+                        "long_oi": 48026,
+                        "short_oi": 0,
+                        "net_oi": 48026,
+                        "interday_change_in_long_oi": 5950,
+                        "interday_percentage_change_in_long_oi": 14.14107804924422473619165320,
+                        "interday_change_in_short_oi": 0,
+                        "interday_percentage_change_in_short_oi": 0,
+                        "interday_change_in_net_oi": 5950
+                    }
+                },
+                "fii": {
+                    "fut_oi": {
+                        "long_oi": 98201,
+                        "short_oi": 79767,
+                        "net_oi": 18434,
+                        "interday_change_in_long_oi": 9912,
+                        "interday_percentage_change_in_long_oi": 11.22676664137095221375256261,
+                        "interday_change_in_short_oi": 3586,
+                        "interday_percentage_change_in_short_oi": 4.707210459300875546396083013,
+                        "interday_change_in_net_oi": 6326
+                    },
+                    "call": {
+                        "long_oi": 492022,
+                        "short_oi": 342037,
+                        "net_oi": 149985,
+                        "interday_change_in_long_oi": 9675,
+                        "interday_percentage_change_in_long_oi": 2.005817388726373337037443998,
+                        "interday_change_in_short_oi": 9838,
+                        "interday_percentage_change_in_short_oi": 2.961477909325434453445073585,
+                        "interday_change_in_net_oi": -163
+                    },
+                    "put": {
+                        "long_oi": 583153,
+                        "short_oi": 331135,
+                        "net_oi": 252018,
+                        "interday_change_in_long_oi": 2649,
+                        "interday_percentage_change_in_long_oi": 0.4563276049777434780811157201,
+                        "interday_change_in_short_oi": 9770,
+                        "interday_percentage_change_in_short_oi": 3.040156831017690165388265679,
+                        "interday_change_in_net_oi": -7121
+                    }
+                },
+                "prop": {
+                    "fut_oi": {
+                        "long_oi": 34305,
+                        "short_oi": 29318,
+                        "net_oi": 4987,
+                        "interday_change_in_long_oi": 4092,
+                        "interday_percentage_change_in_long_oi": 13.54383874491113097011220336,
+                        "interday_change_in_short_oi": -2676,
+                        "interday_percentage_change_in_short_oi": -8.364068262799274864037006939,
+                        "interday_change_in_net_oi": 6768
+                    },
+                    "call": {
+                        "long_oi": 669727,
+                        "short_oi": 946909,
+                        "net_oi": -277182,
+                        "interday_change_in_long_oi": -115082,
+                        "interday_percentage_change_in_long_oi": -14.66369524304639727627996111,
+                        "interday_change_in_short_oi": 41666,
+                        "interday_percentage_change_in_short_oi": 4.602742026174187483360821349,
+                        "interday_change_in_net_oi": -156748
+                    },
+                    "put": {
+                        "long_oi": 661793,
+                        "short_oi": 754576,
+                        "net_oi": -92783,
+                        "interday_change_in_long_oi": -29426,
+                        "interday_percentage_change_in_long_oi": -4.257116774857172618229533621,
+                        "interday_change_in_short_oi": -64338,
+                        "interday_percentage_change_in_short_oi": -7.856502636418476176985617537,
+                        "interday_change_in_net_oi": 34912
+                    }
+                }
+            },
+            "fii_future_crores": {
+                "buy": 7202.93,
+                "sell": 6648.09,
+                "net": 554.84,
+                "oi": 177968
+            }
+        },
+        "17-Feb-2022": {
+            "candlesticks": {
+                "bullish": [],
+                "bearish": []
+            },
+            "close": 17304.599609375,
+            "date": "2022-02-17",
+            "cash": {
+                "dii": {
+                    "buy": 4617.33,
+                    "sell": 3716.23,
+                    "net": 901.1
+                },
+                "fii": {
+                    "buy": 6078.38,
+                    "sell": 7320.48,
+                    "net": -1242.1
+                }
+            },
+            "oi": {
+                "retail": {
+                    "fut_oi": {
+                        "long_oi": 180916,
+                        "short_oi": 161678,
+                        "net_oi": 19238,
+                        "interday_change_in_long_oi": -3021,
+                        "interday_percentage_change_in_long_oi": -1.642410173048380695564242105,
+                        "interday_change_in_short_oi": -5384,
+                        "interday_percentage_change_in_short_oi": -3.222755623660676874453795597,
+                        "interday_change_in_net_oi": 2363
+                    },
+                    "call": {
+                        "long_oi": 1348674,
+                        "short_oi": 1382036,
+                        "net_oi": -33362,
+                        "interday_change_in_long_oi": -1496782,
+                        "interday_percentage_change_in_long_oi": -52.60253541084451841813754983,
+                        "interday_change_in_short_oi": -1337042,
+                        "interday_percentage_change_in_short_oi": -49.17262395562025068791700716,
+                        "interday_change_in_net_oi": -159740
+                    },
+                    "put": {
+                        "long_oi": 1158444,
+                        "short_oi": 1446735,
+                        "net_oi": -288291,
+                        "interday_change_in_long_oi": -1148257,
+                        "interday_percentage_change_in_long_oi": -49.77918681268183435997990203,
+                        "interday_change_in_short_oi": -1067226,
+                        "interday_percentage_change_in_short_oi": -42.45197121196390874798773728,
+                        "interday_change_in_net_oi": -81031
+                    }
+                },
+                "dii": {
+                    "fut_oi": {
+                        "long_oi": 21209,
+                        "short_oi": 64339,
+                        "net_oi": -43130,
+                        "interday_change_in_long_oi": 1981,
+                        "interday_percentage_change_in_long_oi": 10.30268358643644684834616185,
+                        "interday_change_in_short_oi": 4815,
+                        "interday_percentage_change_in_short_oi": 8.089174114642833142933942611,
+                        "interday_change_in_net_oi": -2834
+                    },
+                    "call": {
+                        "long_oi": 819,
+                        "short_oi": 0,
+                        "net_oi": 819,
+                        "interday_change_in_long_oi": 0,
+                        "interday_percentage_change_in_long_oi": 0,
+                        "interday_change_in_short_oi": 0,
+                        "interday_percentage_change_in_short_oi": 0,
+                        "interday_change_in_net_oi": 0
+                    },
+                    "put": {
+                        "long_oi": 47958,
+                        "short_oi": 0,
+                        "net_oi": 47958,
+                        "interday_change_in_long_oi": -68,
+                        "interday_percentage_change_in_long_oi": -0.1415899720984466747178611585,
+                        "interday_change_in_short_oi": 0,
+                        "interday_percentage_change_in_short_oi": 0,
+                        "interday_change_in_net_oi": -68
+                    }
+                },
+                "fii": {
+                    "fut_oi": {
+                        "long_oi": 110868,
+                        "short_oi": 81710,
+                        "net_oi": 29158,
+                        "interday_change_in_long_oi": 12667,
+                        "interday_percentage_change_in_long_oi": 12.89905398112035518986568365,
+                        "interday_change_in_short_oi": 1943,
+                        "interday_percentage_change_in_short_oi": 2.435844396805696591322225983,
+                        "interday_change_in_net_oi": 10724
+                    },
+                    "call": {
+                        "long_oi": 313509,
+                        "short_oi": 195024,
+                        "net_oi": 118485,
+                        "interday_change_in_long_oi": -178513,
+                        "interday_percentage_change_in_long_oi": -36.28150773745889411449081545,
+                        "interday_change_in_short_oi": -147013,
+                        "interday_percentage_change_in_short_oi": -42.98160725301648652046416031,
+                        "interday_change_in_net_oi": -31500
+                    },
+                    "put": {
+                        "long_oi": 464193,
+                        "short_oi": 219270,
+                        "net_oi": 244923,
+                        "interday_change_in_long_oi": -118960,
+                        "interday_percentage_change_in_long_oi": -20.39944920115304216903625635,
+                        "interday_change_in_short_oi": -111865,
+                        "interday_percentage_change_in_short_oi": -33.78229423044981654008183973,
+                        "interday_change_in_net_oi": -7095
+                    }
+                },
+                "prop": {
+                    "fut_oi": {
+                        "long_oi": 26574,
+                        "short_oi": 31840,
+                        "net_oi": -5266,
+                        "interday_change_in_long_oi": -7731,
+                        "interday_percentage_change_in_long_oi": -22.53607345867949278530826410,
+                        "interday_change_in_short_oi": 2522,
+                        "interday_percentage_change_in_short_oi": 8.602223889760556654614912341,
+                        "interday_change_in_net_oi": -10253
+                    },
+                    "call": {
+                        "long_oi": 422793,
+                        "short_oi": 508735,
+                        "net_oi": -85942,
+                        "interday_change_in_long_oi": -246934,
+                        "interday_percentage_change_in_long_oi": -36.87084438883306182967089575,
+                        "interday_change_in_short_oi": -438174,
+                        "interday_percentage_change_in_short_oi": -46.27414038730226452594705510,
+                        "interday_change_in_net_oi": 191240
+                    },
+                    "put": {
+                        "long_oi": 435010,
+                        "short_oi": 439599,
+                        "net_oi": -4589,
+                        "interday_change_in_long_oi": -226783,
+                        "interday_percentage_change_in_long_oi": -34.26796596518851060679094520,
+                        "interday_change_in_short_oi": -314977,
+                        "interday_percentage_change_in_short_oi": -41.74224995229108797523377367,
+                        "interday_change_in_net_oi": 88194
+                    }
+                }
+            },
+            "fii_future_crores": {
+                "buy": 6274.9,
+                "sell": 5384.51,
+                "net": 890.39,
+                "oi": 192578
+            }
+        },
+        "18-Feb-2022": {
+                "candlesticks": {
+                    "bullish": [
+                        "Inverted Hammer"
+                    ],
+                    "bearish": []
+                },
+                "close": 17276.30078125,
+                "date": "2022-02-18",
+                "cash": {
+                    "dii": {
+                        "buy": 4992.67,
+                        "sell": 3063.59,
+                        "net": 1929.08
+                    },
+                    "fii": {
+                        "buy": 4314.48,
+                        "sell": 6844.44,
+                        "net": -2529.96
+                    }
+                },
+                "oi": {
+                    "retail": {
+                        "fut_oi": {
+                            "long_oi": 178465,
+                            "short_oi": 171184,
+                            "net_oi": 7281,
+                            "interday_change_in_long_oi": -2451,
+                            "interday_percentage_change_in_long_oi": -1.354772380552300515156205090,
+                            "interday_change_in_short_oi": 9506,
+                            "interday_percentage_change_in_short_oi": 5.879587822709335840374076869,
+                            "interday_change_in_net_oi": -11957
+                        },
+                        "call": {
+                            "long_oi": 1717441,
+                            "short_oi": 1798550,
+                            "net_oi": -81109,
+                            "interday_change_in_long_oi": 368767,
+                            "interday_percentage_change_in_long_oi": 27.34293090843302384416100555,
+                            "interday_change_in_short_oi": 416514,
+                            "interday_percentage_change_in_short_oi": 30.13770987152288362965943000,
+                            "interday_change_in_net_oi": -47747
+                        },
+                        "put": {
+                            "long_oi": 1582197,
+                            "short_oi": 1861435,
+                            "net_oi": -279238,
+                            "interday_change_in_long_oi": 423753,
+                            "interday_percentage_change_in_long_oi": 36.57949801630462931311310689,
+                            "interday_change_in_short_oi": 414700,
+                            "interday_percentage_change_in_short_oi": 28.66454464708464231528234265,
+                            "interday_change_in_net_oi": 9053
+                        }
+                    },
+                    "dii": {
+                        "fut_oi": {
+                            "long_oi": 21209,
+                            "short_oi": 63340,
+                            "net_oi": -42131,
+                            "interday_change_in_long_oi": 0,
+                            "interday_percentage_change_in_long_oi": 0,
+                            "interday_change_in_short_oi": -999,
+                            "interday_percentage_change_in_short_oi": -1.552712973468658201091095603,
+                            "interday_change_in_net_oi": 999
+                        },
+                        "call": {
+                            "long_oi": 819,
+                            "short_oi": 0,
+                            "net_oi": 819,
+                            "interday_change_in_long_oi": 0,
+                            "interday_percentage_change_in_long_oi": 0,
+                            "interday_change_in_short_oi": 0,
+                            "interday_percentage_change_in_short_oi": 0,
+                            "interday_change_in_net_oi": 0
+                        },
+                        "put": {
+                            "long_oi": 41969,
+                            "short_oi": 0,
+                            "net_oi": 41969,
+                            "interday_change_in_long_oi": -5989,
+                            "interday_percentage_change_in_long_oi": -12.48801034238291838692188999,
+                            "interday_change_in_short_oi": 0,
+                            "interday_percentage_change_in_short_oi": 0,
+                            "interday_change_in_net_oi": -5989
+                        }
+                    },
+                    "fii": {
+                        "fut_oi": {
+                            "long_oi": 116656,
+                            "short_oi": 79193,
+                            "net_oi": 37463,
+                            "interday_change_in_long_oi": 5788,
+                            "interday_percentage_change_in_long_oi": 5.220622722516866904787675434,
+                            "interday_change_in_short_oi": -2517,
+                            "interday_percentage_change_in_short_oi": -3.080406315016521845551340105,
+                            "interday_change_in_net_oi": 8305
+                        },
+                        "call": {
+                            "long_oi": 378029,
+                            "short_oi": 271410,
+                            "net_oi": 106619,
+                            "interday_change_in_long_oi": 64520,
+                            "interday_percentage_change_in_long_oi": 20.57995145274936285720665116,
+                            "interday_change_in_short_oi": 76386,
+                            "interday_percentage_change_in_short_oi": 39.16748707851341373369431455,
+                            "interday_change_in_net_oi": -11866
+                        },
+                        "put": {
+                            "long_oi": 490909,
+                            "short_oi": 292326,
+                            "net_oi": 198583,
+                            "interday_change_in_long_oi": 26716,
+                            "interday_percentage_change_in_long_oi": 5.755364686671276818047665518,
+                            "interday_change_in_short_oi": 73056,
+                            "interday_percentage_change_in_short_oi": 33.31782733616089752360103981,
+                            "interday_change_in_net_oi": -46340
+                        }
+                    },
+                    "prop": {
+                        "fut_oi": {
+                            "long_oi": 26325,
+                            "short_oi": 28938,
+                            "net_oi": -2613,
+                            "interday_change_in_long_oi": -249,
+                            "interday_percentage_change_in_long_oi": -0.9370060961842402348159855498,
+                            "interday_change_in_short_oi": -2902,
+                            "interday_percentage_change_in_short_oi": -9.114321608040201005025125628,
+                            "interday_change_in_net_oi": 2653
+                        },
+                        "call": {
+                            "long_oi": 556252,
+                            "short_oi": 582581,
+                            "net_oi": -26329,
+                            "interday_change_in_long_oi": 133459,
+                            "interday_percentage_change_in_long_oi": 31.56603822674452982901798280,
+                            "interday_change_in_short_oi": 73846,
+                            "interday_percentage_change_in_short_oi": 14.51561225392394861764966043,
+                            "interday_change_in_net_oi": 59613
+                        },
+                        "put": {
+                            "long_oi": 580599,
+                            "short_oi": 541912,
+                            "net_oi": 38687,
+                            "interday_change_in_long_oi": 145589,
+                            "interday_percentage_change_in_long_oi": 33.46796625364934139445070228,
+                            "interday_change_in_short_oi": 102313,
+                            "interday_percentage_change_in_short_oi": 23.27416577380749273769958530,
+                            "interday_change_in_net_oi": 43276
+                        }
+                    }
+                },
+                "fii_future_crores": {
+                    "buy": 3592.16,
+                    "sell": 2863.0,
+                    "net": 729.16,
+                    "oi": 195849
+                }
         }
     }
 }

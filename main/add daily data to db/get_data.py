@@ -29,12 +29,12 @@ def nsefetch(payload):
         'Accept-Language': 'en-US,en;q=0.9,hi;q=0.8',
     }
     try:
-        output = requests.get(payload, headers=headers).json()
+        output = requests.get(payload, headers=headers, timeout=2).json()
         # print(output)
     except ValueError:
         s = requests.Session()
-        output = s.get("http://nseindia.com", headers=headers)
-        output = s.get(payload, headers=headers).json()
+        output = s.get("http://nseindia.com", headers=headers, timeout=2)
+        output = s.get(payload, headers=headers, timeout=2).json()
     return output
 
 # Function to prevent any false data numbers which may cause error.
@@ -163,15 +163,20 @@ def get_fii_dii_eqt():
     fii_data = {}
     url = 'https://www.nseindia.com/api/fiidiiTradeReact'
     js = nsefetch(url)
-    dii_data['buy'] = float(js[0]['buyValue'])
-    dii_data['sell'] = float(js[0]['sellValue'])
-    dii_data['net'] = float(js[0]['netValue'])
-    fii_data['buy'] = float(js[1]['buyValue'])
-    fii_data['sell'] = float(js[1]['sellValue'])
-    fii_data['net'] = float(js[1]['netValue'])
-    main['dii'] = dii_data
-    main['fii'] = fii_data
-    return main
+    # print(js[0]['date'], fii_stats_date_format)
+    if js[0]['date'] == fii_stats_date_format:
+        dii_data['buy'] = float(js[0]['buyValue'])
+        dii_data['sell'] = float(js[0]['sellValue'])
+        dii_data['net'] = float(js[0]['netValue'])
+        fii_data['buy'] = float(js[1]['buyValue'])
+        fii_data['sell'] = float(js[1]['sellValue'])
+        fii_data['net'] = float(js[1]['netValue'])
+        main['dii'] = dii_data
+        main['fii'] = fii_data
+        return main
+    else:
+        print('FII DII Cash data not updated yet!')
+        quit()
 
 
 # Function to calculate Interday changes.
@@ -203,13 +208,17 @@ def get_data():
     final = {}
     # To get candlestick pattern of the day and close price.
     final['candlesticks'], final['close'] = cs.candlesticks()
+    print("\nAdded Date")
     final['date'] = json_date_format
     # To get Cash Data of FII and DII
     final['cash'] = get_fii_dii_eqt()
+    print("\nAdded Cash info")
     # To get OI of all paticipants.
     final['oi'] = get_fao_oi(fao_oi_date_format)
+    print("\nAdded OI data")
     # To get Future Buy and Sell of FII in Crores.
     final['fii_future_crores'] = get_fii_stats(fii_stats_date_format)
+    print("\nAdded FUT Data")
     # print(final)
     # Calculating change from previos day.
     done = previous_data_compare(final)
@@ -221,6 +230,7 @@ def get_data():
 def prelims():
     if date.today().weekday() == 6 or date.today().weekday() == 5:
         print('Saturday and Sunday nothing to do!')
+        quit()
     else:
         get_data()
 

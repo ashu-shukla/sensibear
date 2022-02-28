@@ -75,159 +75,161 @@ def add_daily_data(data):
 
 
 # data = {
+#     "candlesticks": {
+#         "bullish": [
+#             "Inverted Hammer"
+#         ],
+#         "bearish": []
+#     },
+#     "close": 17276.30078125,
+#     "date": "2022-02-18",
 #     "cash": {
 #         "dii": {
-#             "buy": 0,
-#             "sell": 0,
-#             "net": 0
+#             "buy": 4992.67,
+#             "sell": 3063.59,
+#             "net": 1929.08
 #         },
 #         "fii": {
-#             "buy": 0,
-#             "sell": 0,
-#             "net": 0
+#             "buy": 4314.48,
+#             "sell": 6844.44,
+#             "net": -2529.96
 #         }
 #     },
 #     "oi": {
 #         "retail": {
 #             "fut_oi": {
-#                 "long_oi": 221211,
-#                 "short_oi": 208689,
-#                 "net_oi": 12522,
-#                 "interday_change_in_long_oi": 11274.0,
-#                 "interday_percentage_change_in_long_oi": 5.370182483316423,
-#                 "interday_change_in_short_oi": -3991.0,
-#                 "interday_percentage_change_in_short_oi": -1.876528117359413,
-#                 "interday_change_in_net_oi": 15265.0
+#                 "long_oi": 178465,
+#                 "short_oi": 171184,
+#                 "net_oi": 7281,
+#                 "interday_change_in_long_oi": -2451,
+#                 "interday_percentage_change_in_long_oi": -1.354772380552300515156205090,
+#                 "interday_change_in_short_oi": 9506,
+#                 "interday_percentage_change_in_short_oi": 5.879587822709335840374076869,
+#                 "interday_change_in_net_oi": -11957
 #             },
 #             "call": {
-#                 "long_oi": 396433,
-#                 "short_oi": 533958,
-#                 "net_oi": -137525,
-#                 "interday_change_in_long_oi": -140327.0,
-#                 "interday_percentage_change_in_long_oi": -26.143341530665477,
-#                 "interday_change_in_short_oi": -79451.0,
-#                 "interday_percentage_change_in_short_oi": -12.952369463115149,
-#                 "interday_change_in_net_oi": -60876.0
+#                 "long_oi": 1717441,
+#                 "short_oi": 1798550,
+#                 "net_oi": -81109,
+#                 "interday_change_in_long_oi": 368767,
+#                 "interday_percentage_change_in_long_oi": 27.34293090843302384416100555,
+#                 "interday_change_in_short_oi": 416514,
+#                 "interday_percentage_change_in_short_oi": 30.13770987152288362965943000,
+#                 "interday_change_in_net_oi": -47747
 #             },
 #             "put": {
-#                 "long_oi": 610181,
-#                 "short_oi": 821182,
-#                 "net_oi": -211001,
-#                 "interday_change_in_long_oi": -8510.0,
-#                 "interday_percentage_change_in_long_oi": -1.3754846926818074,
-#                 "interday_change_in_short_oi": -41955.0,
-#                 "interday_percentage_change_in_short_oi": -4.860757909810378,
-#                 "interday_change_in_net_oi": 33445.0
+#                 "long_oi": 1582197,
+#                 "short_oi": 1861435,
+#                 "net_oi": -279238,
+#                 "interday_change_in_long_oi": 423753,
+#                 "interday_percentage_change_in_long_oi": 36.57949801630462931311310689,
+#                 "interday_change_in_short_oi": 414700,
+#                 "interday_percentage_change_in_short_oi": 28.66454464708464231528234265,
+#                 "interday_change_in_net_oi": 9053
 #             }
 #         },
 #         "dii": {
 #             "fut_oi": {
-#                 "long_oi": 24502,
-#                 "short_oi": 30226,
-#                 "net_oi": -5724,
-#                 "interday_change_in_long_oi": 1038.0,
-#                 "interday_percentage_change_in_long_oi": 4.423798158881691,
-#                 "interday_change_in_short_oi": -276.0,
-#                 "interday_percentage_change_in_short_oi": -0.9048586977903087,
-#                 "interday_change_in_net_oi": 1314.0
+#                 "long_oi": 21209,
+#                 "short_oi": 63340,
+#                 "net_oi": -42131,
+#                 "interday_change_in_long_oi": 0,
+#                 "interday_percentage_change_in_long_oi": 0,
+#                 "interday_change_in_short_oi": -999,
+#                 "interday_percentage_change_in_short_oi": -1.552712973468658201091095603,
+#                 "interday_change_in_net_oi": 999
 #             },
 #             "call": {
-#                 "long_oi": 62061,
+#                 "long_oi": 819,
 #                 "short_oi": 0,
-#                 "net_oi": 62061,
-#                 "interday_change_in_long_oi": 0.0,
-#                 "interday_percentage_change_in_long_oi": 0.0,
-#                 "interday_change_in_short_oi": 0.0,
+#                 "net_oi": 819,
+#                 "interday_change_in_long_oi": 0,
+#                 "interday_percentage_change_in_long_oi": 0,
+#                 "interday_change_in_short_oi": 0,
 #                 "interday_percentage_change_in_short_oi": 0,
-#                 "interday_change_in_net_oi": 0.0
+#                 "interday_change_in_net_oi": 0
 #             },
 #             "put": {
-#                 "long_oi": 92099,
+#                 "long_oi": 41969,
 #                 "short_oi": 0,
-#                 "net_oi": 92099,
-#                 "interday_change_in_long_oi": 1769.0,
-#                 "interday_percentage_change_in_long_oi": 1.958374847780361,
-#                 "interday_change_in_short_oi": 0.0,
+#                 "net_oi": 41969,
+#                 "interday_change_in_long_oi": -5989,
+#                 "interday_percentage_change_in_long_oi": -12.48801034238291838692188999,
+#                 "interday_change_in_short_oi": 0,
 #                 "interday_percentage_change_in_short_oi": 0,
-#                 "interday_change_in_net_oi": 1769.0
+#                 "interday_change_in_net_oi": -5989
 #             }
 #         },
 #         "fii": {
 #             "fut_oi": {
-#                 "long_oi": 112468,
-#                 "short_oi": 72804,
-#                 "net_oi": 39664,
-#                 "interday_change_in_long_oi": -1195.0,
-#                 "interday_percentage_change_in_long_oi": -1.0513535627248973,
-#                 "interday_change_in_short_oi": 4684.0,
-#                 "interday_percentage_change_in_short_oi": 6.876100998238403,
-#                 "interday_change_in_net_oi": -5879.0
+#                 "long_oi": 116656,
+#                 "short_oi": 79193,
+#                 "net_oi": 37463,
+#                 "interday_change_in_long_oi": 5788,
+#                 "interday_percentage_change_in_long_oi": 5.220622722516866904787675434,
+#                 "interday_change_in_short_oi": -2517,
+#                 "interday_percentage_change_in_short_oi": -3.080406315016521845551340105,
+#                 "interday_change_in_net_oi": 8305
 #             },
 #             "call": {
-#                 "long_oi": 186185,
-#                 "short_oi": 79194,
-#                 "net_oi": 106991,
-#                 "interday_change_in_long_oi": 1495.0,
-#                 "interday_percentage_change_in_long_oi": 0.809464508094645,
-#                 "interday_change_in_short_oi": -4736.0,
-#                 "interday_percentage_change_in_short_oi": -5.642797569403074,
-#                 "interday_change_in_net_oi": 6231.0
+#                 "long_oi": 378029,
+#                 "short_oi": 271410,
+#                 "net_oi": 106619,
+#                 "interday_change_in_long_oi": 64520,
+#                 "interday_percentage_change_in_long_oi": 20.57995145274936285720665116,
+#                 "interday_change_in_short_oi": 76386,
+#                 "interday_percentage_change_in_short_oi": 39.16748707851341373369431455,
+#                 "interday_change_in_net_oi": -11866
 #             },
 #             "put": {
-#                 "long_oi": 294452,
-#                 "short_oi": 131706,
-#                 "net_oi": 162746,
-#                 "interday_change_in_long_oi": -10169.0,
-#                 "interday_percentage_change_in_long_oi": -3.338246542424849,
-#                 "interday_change_in_short_oi": 4208.0,
-#                 "interday_percentage_change_in_short_oi": 3.3004439285322125,
-#                 "interday_change_in_net_oi": -14377.0
+#                 "long_oi": 490909,
+#                 "short_oi": 292326,
+#                 "net_oi": 198583,
+#                 "interday_change_in_long_oi": 26716,
+#                 "interday_percentage_change_in_long_oi": 5.755364686671276818047665518,
+#                 "interday_change_in_short_oi": 73056,
+#                 "interday_percentage_change_in_short_oi": 33.31782733616089752360103981,
+#                 "interday_change_in_net_oi": -46340
 #             }
 #         },
 #         "prop": {
 #             "fut_oi": {
-#                 "long_oi": 16467,
-#                 "short_oi": 62929,
-#                 "net_oi": -46462,
-#                 "interday_change_in_long_oi": -4402.0,
-#                 "interday_percentage_change_in_long_oi": -21.093487948631942,
-#                 "interday_change_in_short_oi": 6298.0,
-#                 "interday_percentage_change_in_short_oi": 11.121117409192845,
-#                 "interday_change_in_net_oi": -10700.0
+#                 "long_oi": 26325,
+#                 "short_oi": 28938,
+#                 "net_oi": -2613,
+#                 "interday_change_in_long_oi": -249,
+#                 "interday_percentage_change_in_long_oi": -0.9370060961842402348159855498,
+#                 "interday_change_in_short_oi": -2902,
+#                 "interday_percentage_change_in_short_oi": -9.114321608040201005025125628,
+#                 "interday_change_in_net_oi": 2653
 #             },
 #             "call": {
-#                 "long_oi": 161151,
-#                 "short_oi": 192677,
-#                 "net_oi": -31526,
-#                 "interday_change_in_long_oi": 7996.0,
-#                 "interday_percentage_change_in_long_oi": 5.220854689693448,
-#                 "interday_change_in_short_oi": -46649.0,
-#                 "interday_percentage_change_in_short_oi": -19.491822869224404,
-#                 "interday_change_in_net_oi": 54645.0
+#                 "long_oi": 556252,
+#                 "short_oi": 582581,
+#                 "net_oi": -26329,
+#                 "interday_change_in_long_oi": 133459,
+#                 "interday_percentage_change_in_long_oi": 31.56603822674452982901798280,
+#                 "interday_change_in_short_oi": 73846,
+#                 "interday_percentage_change_in_short_oi": 14.51561225392394861764966043,
+#                 "interday_change_in_net_oi": 59613
 #             },
 #             "put": {
-#                 "long_oi": 174172,
-#                 "short_oi": 218016,
-#                 "net_oi": -43844,
-#                 "interday_change_in_long_oi": -16726.0,
-#                 "interday_percentage_change_in_long_oi": -8.76174711102264,
-#                 "interday_change_in_short_oi": 4111.0,
-#                 "interday_percentage_change_in_short_oi": 1.9218812089478974,
-#                 "interday_change_in_net_oi": -20837.0
+#                 "long_oi": 580599,
+#                 "short_oi": 541912,
+#                 "net_oi": 38687,
+#                 "interday_change_in_long_oi": 145589,
+#                 "interday_percentage_change_in_long_oi": 33.46796625364934139445070228,
+#                 "interday_change_in_short_oi": 102313,
+#                 "interday_percentage_change_in_short_oi": 23.27416577380749273769958530,
+#                 "interday_change_in_net_oi": 43276
 #             }
 #         }
 #     },
 #     "fii_future_crores": {
-#         "buy": 840.7185,
-#         "sell": 1288.9327,
-#         "oi": 14982.564,
-#         "net": -448.2142000000001
-#     },
-#     "candlesticks": {
-#         "bullish": [],
-#         "bearish": []
-#     },
-#     "close": "10504.8",
-#     "date": "2018-01-04"
+#         "buy": 3592.16,
+#         "sell": 2863.0,
+#         "net": 729.16,
+#         "oi": 195849
+#     }
 # }
 # add_daily_data(data)

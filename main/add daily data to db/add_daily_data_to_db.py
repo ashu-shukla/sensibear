@@ -27,7 +27,7 @@ def add_daily_data(data):
         cur.execute(daily_cash_sql, (uid, date, close, cash['dii']['buy'], cash['dii']['sell'], cash
                                      ['dii']['net'], cash['fii']['buy'], cash['fii']['sell'], cash['fii']['net']))
         ret = cur.fetchone()[0]
-        print(f'Data of {ret} added to DB!')
+        print(f'\nData of {ret} added to DB!')
 
     def add_fii_future_crores(cur):
         sql = 'INSERT INTO fii_future_crores(day_id, buy, sell, net, oi) VALUES(%s,%s,%s,%s,%s);'
