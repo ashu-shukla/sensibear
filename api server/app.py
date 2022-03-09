@@ -34,14 +34,14 @@ def hi_neo():
 @app.route('/v1/fii_dii_details')
 @require_appkey
 def todays_data():
-    data = gt.latest_data_in_postgres()
+    data = gt.get_latest_five_days_data()
     return jsonify(data), 200
 
 
 @app.route('/v1/fii_dii_details/<date>')
 @require_appkey
 def other_days_data(date):
-    data = gt.get_data_in_postgres(date)
+    data = gt.get_days_data(date)
     return jsonify(data), 200
 
 
