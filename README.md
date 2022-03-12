@@ -1,14 +1,10 @@
 # SensiBear 🐻
 
----
-
 ## Introduction
 
 The one stop place to wreck my boi Abid's software the useless-bull.\
 It is as of now built to provide API service to the data.\
 And is just for a parody unless i start seeing some sick profits out of this.
-
----
 
 ## The Backend
 
@@ -22,7 +18,7 @@ python main.py
 
 This is connected to a lot of files that are in that particular folder.
 
-### Files in resources and their purpose:
+### Files in resources and their purpose
 
 1. To get yesterday's OI data from DB and compare it to todays fetched data.
 
@@ -43,7 +39,5 @@ This is connected to a lot of files that are in that particular folder.
 
 5. Get FII futures data.
    - get_fii_future_cash.py
-
----
 
 ## API Server
