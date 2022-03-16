@@ -1,9 +1,10 @@
 import yfinance as yf
 import talib
+from nsepy import get_history
 from datetime import timedelta, date
 
 # One extra day as Yfinance likes it.
-today = date.today()+timedelta(days=1)
+today = date.today()
 start_day = date.today()-timedelta(days=50)
 today_str = today.strftime('%Y-%m-%d')  # DD-MMM-YYYY
 start_day_str = start_day.strftime('%Y-%m-%d')  # DD-MMM-YYYY
@@ -77,8 +78,9 @@ candlestick_patterns = {
 
 def candlesticks():
     print('\nRetrieveing NIFTY OHLC Data...')
-    df = yf.download('^NSEI', start=start_day_str,
-                     end=today_str, progress=False)
+    # df = yf.download('^NSEI', start=start_day_str,
+    #                  end=today_str, progress=False)
+    df = get_history(symbol="NIFTY", start=start_day, end=today, index=True)
     close = df['Close'].tail(1).values[0]
     ldate = df['Close'].tail(1).index[0]
     print(f'NIFTY closed at {close} on {ldate}')
