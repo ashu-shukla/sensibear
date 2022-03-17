@@ -1,6 +1,6 @@
 import psycopg2
 import itertools
-from config import config
+from res.config import config
 
 
 def get_oi(cur, previous_date):

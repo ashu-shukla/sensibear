@@ -1,8 +1,9 @@
-import yesterdays_data_from_db as ytd
+# import yesterdays_data_from_db as ytd
+from res.yesterdays_data_from_db import get_yesterdays_data
 
 
 # Gets the last date of data entered in DB, the OI data of the date and list of  dates.
-last_date, recent_oi_data, list_of_dates = ytd.get_yesterdays_data()
+last_date, recent_oi_data, list_of_dates = get_yesterdays_data()
 
 
 # Function to calculate Interday changes.

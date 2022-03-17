@@ -1,5 +1,5 @@
 import psycopg2
-from config import config
+from res.config import config
 
 
 def add_daily_data(data):

@@ -1,4 +1,4 @@
-from nsefetch import nsefetch
+from res.nsefetch import nsefetch
 # Function to get cash data of the day.
 
 

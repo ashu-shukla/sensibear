@@ -1,14 +1,14 @@
-from calculate_change_from_ytd import previous_data_compare
-from get_fii_future_cash import get_fii_stats
-from get_participant_wise_fao import get_fao_oi
-from get_day_cash_data import get_fii_dii_eqt
-from get_candlestick_pattern_of_the_day import candlesticks
-from add_data_to_db import add_daily_data
+from res.calculate_change_from_ytd import previous_data_compare
+from res.get_fii_future_cash import get_fii_stats
+from res.get_participant_wise_fao import get_fao_oi
+from res.get_day_cash_data import get_fii_dii_eqt
+from res.get_candlestick_pattern_of_the_day import candlesticks
+from res.add_data_to_db import add_daily_data
 from datetime import datetime, date
 
 # Main runs only on CRON settings and a pre-check code to see all the details and conditions are met.
 # Code the pre-check here============>
-
+# recheck includes checking the market was open as well as fao data is available or not.
 
 # Different date formats.
 today = datetime.today()
