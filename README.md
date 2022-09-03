@@ -6,6 +6,16 @@ The one stop place to wreck my boi Abid's software the useless-bull.\
 It is as of now built to provide API service to the data.\
 And is just for a parody unless i start seeing some sick profits out of this.
 
+## ER Diagrams
+
+### Database that stores daily data scraped from NSE
+
+   <img src="./public/ER-DB.png" width="550">
+
+### Options database(never actually used it tho)
+
+   <img src="./public/ER-DB2.png" width="550">
+
 ## The Backend
 
 Inside backend folder is where majority of the automagic happens.\
