@@ -10,7 +10,7 @@ And is just for a parody unless i start seeing some sick profits out of this.
 
 ### Database that stores daily data scraped from NSE
 
-   <img src="./public/ER-DB.png" width="550">
+   <img src="./public/ER-DB.png" width="850">
 
 ### Options database(never actually used it tho)
 
