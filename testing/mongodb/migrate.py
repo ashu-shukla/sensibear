@@ -5,18 +5,18 @@ import access_postgres as pg
 
 
 def add_to_mongo(data):
-    url = "https://data.mongodb-api.com/app/data-tupvs/endpoint/data/beta/action/insertMany"
+    url = "mongo_endpoint"
 
     payload = json.dumps({
-        "collection": "daily",
-        "database": "sensibear",
-        "dataSource": "snowflake",
+        "collection": "nm",
+        "database": "db",
+        "dataSource": "ds",
         "documents": data,
     })
     headers = {
         'Content-Type': 'application/json',
         'Access-Control-Request-Headers': '*',
-        'api-key': 'JBSrylO5CCrXRY8xbeI2RoMDOijzmR0TlXZK3dRjVIz9UvnTtXRd7GkfyD1PMyI1'
+        'api-key': 'key'
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
